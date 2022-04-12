@@ -1,6 +1,10 @@
-export function loggedIn(payload) {
+export const increase = () => {
   return {
-    type: "LOGIN",
-    payload,
+    type: "INC",
   };
-}
+};
+export const decrease = () => {
+  return {
+    type: "DEC",
+  };
+};

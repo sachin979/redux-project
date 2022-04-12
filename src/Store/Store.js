@@ -1,28 +1,9 @@
-import React from "react";
+import reduc from "../reducers/combineReducer";
 import { createStore } from "@reduxjs/toolkit";
 
-const st = "not logged in";
-const Store = () => {
-  console.log("reducer called");
-  const reducer = (state = st, action) => {
-    switch (action) {
-      case "LOGIN":
-        return state;
-      case "LOGOUT":
-        return state;
-    }
-    return state;
-  };
+const store = createStore(
+  reduc,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
-  const store = createStore(reducer);
-
-  store.subscribe(() => {
-    console.log("store called ", store.getState());
-  });
-  store.dispatch({
-    type: "LOGIN",
-  });
-  return <div></div>;
-};
-
-export default Store;
+export default store;
