@@ -1,6 +1,4 @@
 import "./App.css";
-import { Button, Card, Paper } from "@material-ui/core";
-
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { increase } from "./Actions/Actions";
@@ -11,11 +9,25 @@ function App() {
   const numbe = useSelector((state) => state.numb);
   return (
     <div className="App">
-      <Button variant="contained" onClick={() => dispatch(increase())}>
-        +
-      </Button>
-      <Paper>{numbe}</Paper>
-      <Button variant="contained">-</Button>
+      <div className="main">
+        <span
+          style={{ borderRadius: " 0  0 0 3px" }}
+          className="button"
+          variant="contained"
+          onClick={() => dispatch(increase())}
+        >
+          +
+        </span>
+        <span className="count">{numbe}</span>
+        <span
+          style={{ borderRadius: " 0 3px  0 0 " }}
+          className="button"
+          variant="contained"
+          onClick={() => dispatch(decrease())}
+        >
+          -
+        </span>
+      </div>
     </div>
   );
 }
